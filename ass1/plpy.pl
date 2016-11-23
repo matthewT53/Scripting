@@ -1,3 +1,7 @@
+# Author: Matthew Ta
+# This perl script receives a perl script as input and 
+# outputs an equivalent python script.
+
 #!/usr/bin/perl -w
 # stores the python output
 @python = ();
