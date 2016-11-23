@@ -1,0 +1,4 @@
+Pointers and call be reference vs value:
+
+* If a pointer changes what it is pointing when passed to a function, after the function finishes, the new address that it points to is lost
+  when control returns to the main function.

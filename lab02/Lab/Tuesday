@@ -1,0 +1,7 @@
+grep COMP[29]041 enrollments | cut -c10-16 What can go wrong? 
+
+Meta characters:
+* Weird synbols
+
+How to remove a file called -f:
+rm ../path/../path/-f

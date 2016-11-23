@@ -1,0 +1,93 @@
+/*
+	char *startLinePtr = NULL, *blankPtr = NULL, *shiftPtr = NULL, *nullPtr = NULL;	
+	char *newLinePtr = NULL, *spacePtr = NULL;
+	int fillToRight = 0, blanksAdded = 0;
+	
+	
+	// remember where the line starts
+	startLinePtr = line;
+
+	printf("pointer to space: %p and pointer to first letter: %p\n", strchr(line, SPACE), strchr(line, 'h'));
+
+	// search for a space in the line
+	blankPtr = strchr(line, SPACE);
+	
+	if (blankPtr == NULL){
+		printf("No initial spaces found, not going to loop.\n");
+	}
+
+	else{
+		// allign towards the left margin
+		while (blanksAdded < numberBlanks){
+			// shift the line array up to allow space for the extra space
+			shiftPtr = shiftArrayUp(blankPtr);
+			if (shiftPtr == NULL){
+				printf("Error detected when shifting.\n");
+				break;
+			}
+			
+			nullPtr = strchr(blankPtr, NULL_CHAR);
+			if (nullPtr == NULL){
+				printf("Error adding the extra space after shifting.\n");
+			}
+
+			else{
+				*nullPtr = SPACE;
+			}
+
+			
+			blankPtr = strchr(blankPtr + 2, SPACE); // find the next space
+			if (blankPtr == NULL){
+				blankPtr = startLinePtr;
+			}
+
+			blanksAdded++;
+		}
+	
+		
+		// assign the null pointer so that rubbish isn't printed
+		newLinePtr = strchr(line, NEWLINE);
+		if (newLinePtr != NULL){
+			*(newLinePtr + 1) = NULL_CHAR;
+		}
+
+		// detect whether the line needs to be alligned to the right margin
+		nullPtr = strchr(line, NULL_CHAR);
+		fillToRight = MAX_CHARS - (nullPtr - line);
+		if (fillToRight){
+			blanksAdded = 0;
+			printf("filleToRight = %d.\n", fillToRight);
+			spacePtr = strrchr(line, SPACE);
+			while (blanksAdded < fillToRight){
+				shiftPtr = shiftArrayUp(spacePtr);
+				if (shiftPtr == NULL){
+					printf("Error detected when shifting.\n");
+				}
+
+				nullPtr = strchr(line, NULL_CHAR);
+				if (nullPtr == NULL){
+					printf("Error fidning null char while shifting to the right.\n");
+				}
+		
+				else{
+					*nullPtr = SPACE;
+				}
+
+				spacePtr = strrchr(spacePtr - 1, SPACE);
+				if (spacePtr == NULL){
+					spacePtr = startLinePtr;
+				}
+
+				blanksAdded++;
+			}
+		}
+
+		newLinePtr = strchr(line, NEWLINE);
+		if (newLinePtr != NULL){
+			*(newLinePtr + 1) = NULL_CHAR;
+		}
+
+		retPtr = line; 
+	}
+	
+	*/

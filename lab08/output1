@@ -1,0 +1,48 @@
+Finding the shortest distance between: Parkes and: Gilgandra
+['Bourke', 'Broken-Hill', '217']
+['Bourke', 'Dubbo', '23']
+['Bourke', 'Gilgandra', '62']
+['Bourke', 'Parkes', '71']
+['Canowindra', 'Dubbo', '35']
+['Canowindra', 'Gilgandra', '13']
+['Canowindra', 'Parkes', '112']
+['Dubbo', 'Gilgandra', '91']
+['Dubbo', 'Parkes', '57']
+
+Popped: Parkes
+From start of loop: 
+['Parkes']
+Adding neighbour to queue: Dubbo
+Adding neighbour to queue: Bourke
+Adding neighbour to queue: Canowindra
+From end of loop: 
+['Parkes', 'Dubbo', 'Bourke', 'Canowindra']
+
+Popped: Dubbo
+From start of loop: 
+['Parkes', 'Dubbo', 'Bourke', 'Canowindra']
+Adding neighbour to queue: Gilgandra
+Adding neighbour to queue: Canowindra
+From end of loop: 
+['Parkes', 'Dubbo', 'Bourke', 'Canowindra', 'Gilgandra', 'Canowindra']
+
+Popped: Bourke
+From start of loop: 
+['Parkes', 'Dubbo', 'Bourke', 'Canowindra', 'Gilgandra', 'Canowindra']
+Adding neighbour to queue: Broken-Hill
+Adding neighbour to queue: Gilgandra
+From end of loop: 
+['Parkes', 'Dubbo', 'Bourke', 'Canowindra', 'Gilgandra', 'Canowindra', 'Broken-Hill', 'Gilgandra']
+
+Popped: Canowindra
+From start of loop: 
+['Parkes', 'Dubbo', 'Bourke', 'Canowindra', 'Gilgandra', 'Canowindra', 'Broken-Hill', 'Gilgandra']
+Adding neighbour to queue: Gilgandra
+From end of loop: 
+['Parkes', 'Dubbo', 'Bourke', 'Canowindra', 'Gilgandra', 'Canowindra', 'Broken-Hill', 'Gilgandra', 'Gilgandra']
+
+Popped: Gilgandra
+From start of loop: 
+['Parkes', 'Dubbo', 'Bourke', 'Canowindra', 'Gilgandra', 'Canowindra', 'Broken-Hill', 'Gilgandra', 'Gilgandra']
+Reached the end
+Shortest route is length = 105: 

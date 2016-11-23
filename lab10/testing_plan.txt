@@ -1,0 +1,77 @@
+Systematic testing:
+
+Test_1:
+Name: Valid card number 
+Value in text field: 0000000000000000
+Buttons pushed: Validate
+Expected response: Card number is valid, Enter another card
+
+Test_2:
+Name: Invalid card number: 
+Value in text field: 1234567890123456
+Buttons pushed: Validate
+Expected response: Card is invalid, "Try again" placed before textfield
+
+Test_3:
+Name: Invalid card number wrong length (< 16)
+Value in text field: asfsgsdg
+Buttons pushed: Validate
+Expected response: Card is invalid - does not contain 16 digits, "Try again" placed before textfield
+
+
+Test_4:
+Name: Invalid card number wrong length (> 16)
+Value in text field: sfslkdfskdnfklsdnfklsdnfklsdnfklnsdfklnsdklfsdfsdfsdfsd
+Buttons pushed: Validate
+Expected response: Card is invalid - does not contain 16 digits, "Try again" placed before textfield
+
+
+Test_5:
+Name: Test Reset after enterring url
+Value in text field: dasfsafsd dasd
+Buttons pushed: Reset
+Expected output: ""
+
+Test_6:
+Name: Test reset after entering card number and card number is valid:
+Value in text field: _oldcard_number + sadasd
+Buttons: Validate
+Expected output: _oldcard_number
+
+Test_7:
+Name: Test reset after entering card number and card number is invalid:
+Value in text field: _oldcard_number + sadasd
+Buttons: Validate
+Expected output: _oldcard_number
+
+Test_8:
+Name: Entering another card number when the previous one enterred was correct
+Value in text field: 0000000000000000
+Buttons: Validate
+Expected output: Valid card number please enter another one
+
+Test_9:
+Name: Entering another card number when the previous one enterred was invalid
+Value in text field: asdadfgdsfvsd
+Buttons: Validate
+Expected output: Invalid card number please enter another one
+
+Test_10:
+Name: Pressing close button after enterring url
+Value in text field: Anything
+Buttons: Close
+Expected output: Thank you
+
+Test_11:
+Name: Pressing close button after enterring valid card number
+Value in text field: 0000000000000000
+Buttons: Close
+Expected output: Thank you
+
+Test_12:
+Name: Pressing close button after enterring invalid card number
+Value in text field: Anything
+Buttons: Close
+Expected output: Thank you
+
+

@@ -1,0 +1,16 @@
+Learn HTML and CSS
+Unix program has bytestreams connected to it:
+* 2 outputs and 1 input
+* stdin
+* stdout
+
+Is a char array immutable?
+char c[10] - yes
+char *s = "dasdas"; - no, leads to crashes
+
+Core dump:
+* refers to the time when bits had to be encoded on mechanical donuts
+
+Can a program change its running arguments?
+
+a.out < enrollments (direct enrolmens into the program)

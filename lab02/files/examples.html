@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Examples</title>
+<link href="../../../2041.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<div id="heading">
+Filters and Regexps
+</div>
+This file contains examples of the use of the most common Unix
+filter programs (<code>egrep</code>, <code>wc</code>, <code>head</code>, etc.)
+It also contains solutions to the exercises discussed in lectures.
+
+<ol>
+
+<li>
+Consider a a file <a href="./course_codes">course_codes</a>
+containing UNSW course codes and names.
+
+<!--#include execute="ls -l course_codes" -->
+<!--#include execute="wc course_codes" -->
+<!--#include execute="head course_codes" -->
+
+It looks like the code is separated from the title by a number of
+spaces. We can check this via <code>cat -A</code>:
+
+<!--#include execute="head -5 course_codes | cat -A" -->
+
+This shows us that our initial guess was wrong, and
+there's actually a tab character between the course code and title
+(shown as <code>^I</code> by <code>cat -A</code>).
+Also, the location of the end-of-line marker (<code>$</code>) indicates
+that there are no trailing spaces or tabs.
+<p>
+If we need to know what COMP courses there are:
+
+<!--#include execute="egrep -c COMP course_codes" -->
+<!--#include execute="egrep COMP course_codes" -->
+
+Either of the two commands below tell us which courses
+have "comp" in their name or code (in upper or lower case).
+
+<!--#include execute="tr A-Z a-z <course_codes | egrep comp" -->
+<!--#include execute="egrep -i comp course_codes" -->
+
+The second one looks better because the data itself isn't transformed,
+only the internal comparisons.
+<p>
+If we want to know how many courses have
+"computing" or "computer" in their title,
+we have to use <code>egrep</code>, which recognises the alternative operator "|",
+and <code>wc</code> to count the number of matches.
+There are a couple of ways to construct the regexp:
+
+<!--#include execute="egrep -i 'computer|computing' course_codes | wc" -->
+<!--#include execute="egrep -i 'comput(er|ing)' course_codes | wc" -->
+
+If you don't like the irrelevant word and character counts,
+use <code>wc -l</code>.
+<p>
+Most of these 80 matches were CSE offerings,
+whose course codes begin with COMP, SENG or BINF.
+Which of the matches were courses offered by other schools?
+<p>
+Think about it for a moment.... There's no "but not" regexp operator,
+so instead we construct a composite filter with an extra step to deal
+with eliminating the CSE courses:
+
+<!--#include execute="egrep -i 'computer|computing' course_codes | egrep -v '^(COMP|SENG|BINF)'" -->
+
+The last ones are from the Computer Science school at ADFA.
+<li>
+Consider a file called <a href="./enrollments">enrollments</a>
+which contains data about student enrollment in courses.
+There is one line for each student enrolled in a course:
+
+<!--#include execute="ls -l enrollments" -->
+<!--#include execute="wc enrollments" -->
+<!--#include execute="head enrollments" -->
+
+The following commands count how many students are enrolled in
+COMP2041 or COMP9041.
+The course IDs differ only in one character,
+so a character class is used instead of alternation.
+<p>
+The first version below is often ferred because initially you may want
+to know "<i>how many xxx</i>", then having found that out
+the next question might be, "<i>well give me a sample of 10 or so of them</i>".
+Then it's a simple matter of replacing <code>wc</code> by <code>head</code>.
+
+<!--#include execute="egrep '^COMP[29]041' enrollments | wc -l" -->
+<!--#include execute="egrep -c '^COMP[29]041' enrollments" -->
+
+The last field field in the enrollment file records the student's gender.
+This command counts the number of female students enrolled in the courses.
+
+<!--#include execute="egrep '^COMP[29]041' enrollments | egrep '|F$' | wc -l" -->
+
+Not a very good gender balance, is it?
+<p>
+By the way, the two <code>egrep</code>s could have been combined into one. How?
+<p>
+This command will give a sorted list of course codes:
+
+<!--#include execute="cut -d'|' -f1 enrollments | sort | uniq" -->
+
+The student records system known to users as myUNSW is built on top of
+a large US product known as PeopleSoft
+(the company was taken over by Oracle in 2004).
+On a scale of 1 to 10 the quality of the design of this product is about 3.
+One of its many flaws is its insistence that everybody must have two names,
+a "Last Name" and a "First Name", neither of which can be empty.
+To signify that a person has only a single name
+(common in Sri Lanka, for example), the system stores a dot character
+in the "First Name" field.
+The enrollments file shows the data as stored in the system,
+with a comma and space separating the component names.
+It has some single-named people (note that the names themselves
+have been disguised):
+
+<!--#include execute="egrep ', \\.' enrollments" -->
+
+What would have happened if we forgot the backslash?
+<p>
+If we wanted to know how many different students there were of this type
+rather than all enrollments,
+just cut out the second field (student ID) and use <code>uniq</code>.
+It's not necessary to sort the data in this case only because
+the data is <i><b>clustered,</b></i> that is, all equal values are adjacent
+although they're not necessarily sorted.
+
+<!--#include execute="egrep ', \\.' enrollments | cut -d'|' -f2 | uniq | wc" -->
+
+<li>
+Now let us turn our attention from students and courses to programs.
+The <a href="./enrollments">enrollments</a> file, as well as linking
+a student to the courses they're taking, also links them to the
+program (degree) that they are currently enrolled in.
+Consider that we want to find out the program codes of the students
+taking COMP2041.
+The following pipeline will do this:
+
+<!--#include execute="egrep 'COMP[29]041' enrollments | cut -d'|' -f4 | cut -d/ -f1  |sort | uniq" -->
+
+If we want to know how many students come from each program,
+ordered from most common program to least common program, try this:
+
+<!--#include execute="egrep COMP[29]041 enrollments | cut -d'|' -f4 | cut -d/ -f1 | sort | uniq -c | sort -nr" -->
+
+Note that a tab is usually inserted between the count and the data,
+but not all implementations of the <code>uniq</code> command ensure this.
+<li>
+<p>
+Consider a file called <a href="./program_codes">program_codes</a>
+that contains the code and name of each program offered at UNSW
+(excluding research programs):
+
+<!--#include execute="wc program_codes" -->
+<!--#include execute="head program_codes" -->
+
+We can use this file to give more details of the programs that COMP2041
+students are taking, if some users don't want to deal with just course
+codes.
+
+<!--#include execute="egrep COMP[29]041 enrollments | cut -d'|' -f4 | cut -d/ -f1 |sort | uniq | join - program_codes" -->
+
+We can combine the enrollment counts (for both courses)
+with the program titles to produce a self-descriptive tally.
+It's even better if it's in decreasing order of popularity,
+so after joining the tallies with the program titles,
+re-sort the composite data:
+
+<!--#include execute="egrep 'COMP[29]041' enrollments | cut -d'|' -f4 | cut -d/ -f1 |sort | uniq -c | join -1 2 -a 1 - program_codes  | sort -k2rn" -->
+
+Note the curious extra space before the title of programs 8682 and 8684.
+It took me a while to work it out, can you?
+(Hint: how are the programs shown in the enrollment file?)
+Suggest an appopriate change to the pipeline.
+<li>
+
+<li>
+Lecture exercises on <code>wc</code>:
+<ol type="a">
+<li> how many different programs does UNSW offer?
+
+<!--#include execute="wc -l program_codes" -->
+
+<li> how many times was WebCMS accessed?
+
+<!--#include execute="wc -l access_log" -->
+
+<li> how many students are studying in CSE?
+
+<!--#include execute="wc -l enrollments" -->
+
+<p>
+The above solutions assume that we're talking about total enrollments.
+If the question actually meant how many distinct indivduals are
+studying courses offered by CSE, then we'd answer it as:
+
+<!--#include execute="cut -d'|' -f2 enrollments | sort | uniq | wc -l" -->
+
+<li> how many words are there in the <a href="./book">book</a>?
+
+<!--#include execute="wc -w book" -->
+
+<li> how many lines are there in the <a href="./story">story</a>?
+
+<!--#include execute="wc -l story" -->
+</ol>
+
+</ol>
+</div>
+</body>
+</html>

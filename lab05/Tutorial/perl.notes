@@ -1,0 +1,24 @@
+Q1)
+
+Files
+
+Git Index: All the files it's seen in the past
+
+Git stage: The files which will be committed
+
+Git Server
+    - gitlab.cse
+    - github
+    - bitbucket
+a)
+b)
+c)
+d)
+
+Q2)
+a-d are all the same
+Everything is a string
+e) 42 is string, perl can distinguish the difference
+f) 3 ne 3.0 produces the same result as 3 == 3.0
+g) "$2.50" treats $2 as a variable
+    '$2.50' treats this as $2.50

@@ -1,0 +1,90 @@
+Q1)
+Command not found
+Problem 1: directory not in path
+Solution: PATH=$PATH:.
+Problem: myScript not executable (error: permission denied)
+Solution: chmod +x myscript || chmod 777 myscript
+
+#!/bin/sh || #!/bin/bash
+
+Q2) 
+1) Put the last names as the first field
+
+Q3)
+a) head -n3
+b) egrep "^(cs|se|bi|en)[0-9]"
+c) egrep "/bin/bash$" | cut -d':' -f1
+d) cut -d':' -f1,2 | tr ':' '\\t' > passwords.txt
+
+No command line arguments, reads only from terminal not files
+"A    B b"
+Echo would produce "A B b" from the line above
+
+Q4) 
+Concatenate a list of files:
+for f in "$@"
+do 
+	if [! -r "$f" ]
+	then
+		echo "No such file: $f"
+	else
+		while read line
+		do
+				echo "$line"
+		done <$f // same as head < $f
+	fi
+done
+
+Q5)
+#!/bin/sh
+for f in "$@"
+do 
+	filename=`echo "$f" | sed 's/\.gz *$//g'`
+	echo "=====$filename ====="
+	if [! -r "$f"] // square brackets is short for test
+	then
+		echo "NO such file: $f"
+	else
+		filetype=`file -b $f | sed 's/ //'`
+		if [ "$ftype" != "gzip" ]
+		then
+			echo "Incorrect filetype: $f"
+		else
+			zcat "$f"
+		fi
+		zcat "$f"
+	fi
+done
+
+Q6) 
+`everything in hre gets executed and then gets converted to a string` => script inside a script
+
+#!/bin/sh
+while read sid name init
+do
+	mark=`grep $sid Marks | cut -d' ' -f2`
+	echo $mark $name $init
+done /* < Students to get rid of the parameter*/| sort -f2
+
+Single pipeline method:
+
+Q9)
+wc -l *.tex
+echo 'wc -l *.tex' ==> removes newline characters
+
+Q11) 
+a) 2 words tr -d ' ' removes spaces
+b) 
+
+Q13)
+a) echo a  b  c = a b c
+b) echo "a  b  c" = a  b  c
+c) echo $y = Y Y
+d) echo x$x = x2
+e) echo $xx = 
+f) echo "$y" = Y Y
+g) echo '$y' = $y
+h) echo `$y` = "y: command not found"
+i) echo `echo a b c` = a b c
+
+

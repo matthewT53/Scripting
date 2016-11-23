@@ -1,0 +1,21 @@
+Regex notes:
+[] - where a bunch of characters is between the square brackets. Matches with any patterns that contain either of the characters
+[^] - exclude some characters
+\d (meta character)- any number
+\w - any character
+\W - non-alphanumeric character
+. - can be used to match any character
+\. - can be used to match the dot character
+{} - an interger(s) resides between the brackets 
+[]{} - same thing as above, just applies to a collection of characters
+* - specify 0 or more
++ - specify 1 or more
+? - optionality, match 0 or 1 of the preceding character or group.
+e.g ab?c will match abc or ac
+^..$ - match every character between start(^) and end($)
+(..) - capture group, capture a group of items (allows the results to be shown on some regex engines)
+(..(..)) - nested group capture
+
+e.g (\d+)x(\d+) to extract height and width from height x width
+
+

@@ -1,0 +1,43 @@
+['poem1.txt', 'poem2.txt', 'poem3.txt']
+word = Ode and logProb = -10.8214
+First time
+word = On and logProb = -4.8733
+Other time
+word = A and logProb = -4.1219
+Other time
+word = Grecian and logProb = -10.8214
+Other time
+word = Urn and logProb = -9.0296
+Other time
+word =  and logProb = -0.6172
+Other time
+word =  and logProb = -0.6172
+Other time
+word =  and logProb = -0.6172
+Other time
+word = Thou and logProb = -5.2607
+Other time
+word = still and logProb = -6.5309
+Other time
+word = unravish and logProb = -10.8214
+Other time
+word = d and logProb = -8.0488
+Other time
+word = bride and logProb = -10.1282
+Other time
+word = of and logProb = -3.9862
+Other time
+word = quietness and logProb = -10.8214
+Other time
+word =  and logProb = -0.6172
+Other time
+word = Thou and logProb = -5.2607
+Other time
+word = foster and logProb = -10.8214
+Other time
+word = child and logProb = -6.5309
+Other time
+word = of and logProb = -3.9862
+Other time
+word = silence and logProb = -7.0837
+Other time

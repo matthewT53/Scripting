@@ -1,0 +1,73 @@
+Learning GDB:
+
+GDB: Basic commands I learnt:
+
+To open a program in GDB run the command:
+
+Gdb <name of program> (use -q to prevent printing of banner)
+
+Start - begin debugging
+
+Before examining registers we need to know the names of the registers we are working with. (register names are different on each machine)
+
+Info registers or I r
+
+x/20i $pc - examine 20 lines of assembly code of program starting at current program counter.
+
+TO include debugging information and symbols use gcc -g
+
+List = shows source code (10 instructions), keep hitting enter
+
+Step - executes first executable instruction
+
+Print or p- prints the current value of a variable to the screen.
+
+Most commands can be abbreviated to a shorter form.
+
+Exit - closes the program in the debugger.
+
+X (lowercase) - lower level version of p, with x we can see memory addresses as well as contents of the memory address in hex. Using  x repeatedly examines progresses through memory.
+
+e,g x/10b string- allows us to examine 10 adjacent memory blocks in hex.
+
+P &string - prints the address of the variable string.
+
+Hardware watchpoint - applying this to a variable allows us to see any changes that occur with the variable.
+
+P &variable - pritns the address if a variable
+
+Watch <variable name> - watches the chnages to the value of the variable
+
+Rwatch <variable name>  - notifies us when the value of I is read for calculations
+
+Cont - keep running until the next  breakpoint
+
+Start - clears out all the breakpoints and restarts the program
+
+Break <line number> - sets up a breakpoint at the specified line in the source code.
+
+Info watch/break - displays all the watch or breakpoints that were created.
+
+Dele <line number> - deletes a breakpoint or watchpoint at the specified line number.
+
+Steps allow you to go into your subroutine.
+
+Bt - shows the call frames for each of the functions.
+
+Frame <call frame number> - switches between function frames.
+
+Set var <variable name> = newValue - When we realise that the variable should contain a specific value and we want to observe what happens when the variable holds this value.
+
+x/32xw <register> = examine 32 blocks of memory from the start of where the register is currently pointing
+
+x/wx <address> = examine contents of memory location in hex
+
+x/ws <address> = examine direct contents
+
+Where w is the number of memory blocks. If omitted then it will display contents of one memory block
+
+Disass <function> - shows assembly code for a specified function
+
+Set disassembly-flavor <style> - I usually select intel for clarity reasons.
+
+Quit - Exit gdb.(q works too)

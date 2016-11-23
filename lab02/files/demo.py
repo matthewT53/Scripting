@@ -1,0 +1,2 @@
+
+invalid QUERY_STRING

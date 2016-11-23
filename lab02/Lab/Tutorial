@@ -1,0 +1,61 @@
+Q1)
+Mechatronic/Comp sci engineering
+Email address: f.westling@unsw.edu.au
+
+Q4) OS is an absraction between the software and the hardware.
+
+Q5)
+a) ^#
+b) [^#]
+c)  $
+d) [BHLP]arry
+e) hello.*world
+f) c[ae]l[ae]nd[ea]r
+g) ([0-9]+,[0-9]+)+
+f) "[^"]*\\n"
+
+Q6) grep <p>|<br> /tmp/index.html
+Need to use quotation marks for regex expressions
+egrep -i "<p[^>]*>|<br[^>]*>" /tmp/index.html
+
+Q8) [0-9]*\.[0-9]*
+
+\ - escapes the meaning of the symbol ahead
+
+[1-9][0-9]+\.[0-9]+
+
+Q9) egrep -v .
+
+egrep '^$' - matches nay line that starts and ends in the middle of a sentence
+This prints every empty line in the file
+
+Q10)
+129\.94\\.172\.([1-9]$)|([12][0-9]$)|(3[0-9]$)
+
+Q11)
+a) ^[^:]+:[^:]+:
+b) ^[0-9]+(\.[0-9]+)?
+c) [^|]+, [^|]+
+d) [^|]+,( [^| ]+)+
+
+Q12)
+a)
+i) sort marks
+ii) sort -t' ' -k2 marks
+iii) sort -t' ' -k2nr marks
+
+b) 
+i) grep FL marks
+ii) grep " 9[0-9] " marks
+iii) grep "[0,2,4,8] [0-9]" marks
+
+c)
+i) sort -k2nr marks | head
+ii) sort -k2nr marks | tail or sort -k2nr marks | tail -5
+
+d) cut -d' ' -f3 marks | sort | uniq -c
+
+Q13)
+a) grep "Ng, Hinry"
+b) cut -d'|' -f3 enrolments | sort | uniq -c | wc -l
+c) sort enrolmnts | cut -d'|' -f1,2 | uniq -c | grep "[^1] "

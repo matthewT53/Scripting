@@ -1,0 +1,72 @@
+int c, x, y, z;
+double d, e, f;
+char *ptr;
+char s1[100], s2[100];
+
+a) c = toupper(c);
+
+b) printf("%c %s digit.\n",c , (isdigit(c) != 0) ? "is a" : "is not a");
+
+c) printf("%d\n", atol("1234567"));
+
+d) printf("%c %s control character.\n", c, (iscntrl(c) != 0) ? "is a": "is not a");
+
+e) fgets(s1, 100, stdin);
+
+f) puts(s1);
+
+g) ptr = strrchr(s1, c);
+
+h) putchar(c);
+
+i) printf("%.2f\n", strtod("8.63582", ptr);
+
+j) printf("%c %s letter.\n", c, (isalpha(c) != 0) ? "is a" : "is not a");
+
+k) c = getchar();
+
+l) ptr = strstr(s1,s2);
+
+m) printf("%c %s printing character.\n", c, (isspace(c) != 0) ? "is a" : "is not a");
+
+n) sscanf("1.27 10.3 9.432", "%f %f %f", &d, &e, &f);
+
+o) strcpy(s1, s2);
+
+p) ptr = strpbrk(s1, s2);
+
+q) printf("%d\n", strcmp(s1, s2));
+
+r) ptr = strchr(s1, c);
+
+s) sprintf(s1, "%7d%7d%7d", x, y, z);
+
+t) strncpy(s1, s2, 10);
+
+u) printf("Length of s1: %d.\n", strlen(s1));
+
+v) printf("%d.\n", atoi("-21"));
+
+w) ptr = strtok(s2, ",");
+
+Exercise 8.2:
+char vowels[] = "AEIOU";
+char *vowels = "AEIOU";
+
+Exercise 8.3:
+a) Prints Jack
+b) Prints jill
+c) Prints jack and jill
+d) prints the value of 8
+e) Prints 13 (assume the continued from other parts)
+
+Exercise 8.4:
+a) Needs to be null terminated
+   To correct this error, add the following line s[5] = '\0'
+b) Should be printf("%c", 'a');
+c) s has not been initialised and as a result contaisn rubbish data. As a result s may not have enough space to hold the string "Welcome home"
+
+d) Poor assumption to assume that the return value of indicates that the strings are equal. The return value of 1 indicates that string1 is greater than string2. To correct this error, the line should be changed to:
+
+if (strcmp(string1, string2) == 0)
+

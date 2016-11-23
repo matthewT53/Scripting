@@ -1,0 +1,11 @@
+/* ======== Working with multiple source files =================== */
+
+extern int flag; // flag is a global var in one file and to use this int from other files, this declration must be included in these files.
+For functions, simly palce the function prototpye in each file that uses the function. Note the function can only be defined once (i.e not in all the files)
+
+Internal linkage:
+* global variables and functions can only be used by other functions in the same file
+* external linkage is when these functions and global vars can be ued by other source files as long as these files have proper prototypes and extern declarations.
+* Using static with a global variable or function prototype reinforces the principle of least priviledged, only allowing functions in the same file to use these functions and global vars.
+
+
