@@ -1,0 +1,25 @@
+<div class="container container-table">
+    <div class="row vertical-center-row">
+        <div class="text-center col-md-4 col-md-offset-4">
+            <h1 style="color: white;">Matelook</h1>
+            <!-- Place login box html code here -->
+            <!-- Below code was taken from: http://bootsnipp.com/snippets/featured/progressive-button-on-login -->
+            <h3 style="background-color: #428bca; border-radius: 5px; color: white;">Reset my password:</h3><br>
+            <div>
+                <label id="error" style="display: none;"></label>
+            </div>
+            <div>
+                <input id="new_pass" type="password" placeholder="New Password" name="new_password" style="width: 80%;">
+                <input id="confirm_pass" type="password" placeholder="Confirm Password" name="confirm_password" style="width: 80%;">
+                <button class="btn btn-primary" onclick="reset_password()">Reset</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="reset_form" name="reset_form" method="POST" action="">
+    <input type="hidden" name="new_pass_form" id="new_pass_form">
+    <input type="hidden" name="confirm_pass_form" id="confirm_pass_form">
+    <input type="hidden" name="reset_stage" id="reset_stage" value="reset_screen_finished">
+    <input type="hidden" name="zid_reset" id="zid_reset" value="{{zid}}">
+</form>

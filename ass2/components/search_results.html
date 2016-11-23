@@ -1,0 +1,64 @@
+<nav class="navbar navbar-inverse" style="background-color: #428bca;">
+  <div class="container-fluid">
+      <div class="col-sm-2">
+
+      </div>
+      <div class="navbar-header col-sm-1">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" style="color: white;">MateLook</a>
+      </div>
+
+      <div class="collapse navbar-collapse col-sm-3" id="myNavbar">
+          <ul class="nav navbar-nav">
+              <li><button class="btn btn-default navbar-btn col-xm-1 button-link-nav" style="color: white;" value="home_page" onclick="change_page(this)">Home</button></li>
+              <li><button class="btn btn-default navbar-btn col-xm-1 button-link-nav" style="color: white;" value="prof_page" onclick="change_page(this)">Profile</button></li>
+              <li><button class="btn btn-default navbar-btn col-xm-1 button-link-nav" style="color: white;" value="settings_page" onclick="change_page(this)">Settings</button></li>
+          </ul>
+      </div>
+
+      <div class="col-sm-4" style="padding-top: 10px">
+          <input id="search_bar" type="textfield" name="search" style="width: 80%" placeholder="Search">
+          <button onclick="get_search_results()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+      </div>
+      <div class="col-sm-2" style="padding-top: 10px">
+          <ul class="nav navbar-nav">
+              <button onclick="logout()">Logout</button>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<div class="container-fluid text-center">
+  <div class="row content">
+    <div class="col-sm-2">
+
+    </div>
+
+    <div class="col-sm-8">
+        <h1> Search Results For: {{search_term}}</h1>
+        <ul style="list-style: none;">
+            {{search_results}}
+        </ul>
+    </div>
+
+    <div class="col-sm-2">
+
+    </div>
+  </div>
+</div>
+<p>
+
+<form id="user_state" method="POST" action="">
+    <input type="hidden" id="logged_in" name="logged_in" value=1>
+    <input type="hidden" id="user_selected" name="user_selected" value="">
+    <input type="hidden" id="current_user" name="current_user" value="{{zid}}">
+    <input type="hidden" id="current_page" name="current_page" value="">
+    <input type="hidden" name="comment_to_send" id="comment_to_send">
+    <input type="hidden" name="reply_to_send" id="reply_to_send">
+    <input type="hidden" name="path_to_comment_reply" id="path_to_comment_reply">
+    <input type="hidden" name="search_for" id="search_for" value="">
+</form>

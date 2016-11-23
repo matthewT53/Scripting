@@ -1,0 +1,15 @@
+<!-- Below comment box code taken from http://codepen.io/magnus16/pen/buGiB -->
+<li>
+	<div class="commenterImage">
+		<img src="{{profile_pic}}">
+	</div>
+	<div class="commentText">
+		<button class="date sub-text button-link" onclick="mate_clicked(this)" value="{{zid}}">{{full_name}}</button>
+		{{delete_button}}
+		<p class="">{{comment}}</p> <span class="date sub-text">{{date}}</span>
+		<button id="{{comment_id}}" class="reply_button btn btn-primary btn-xs" onclick="open_reply_box(this)" name="{{path_to_comment}}">Reply</button>
+	</div>
+	<ul style="list-style: none;">
+		{{replies}}
+	</ul>
+</li>

@@ -1,0 +1,32 @@
+<!-- Below comment box code taken from http://codepen.io/magnus16/pen/buGiB -->
+<!-- The corresponding css file: post.css was also taken from the above link -->
+<div class="row content">
+	<div class="detailBox col-sm-8">
+		<div class="titleBox">
+		  <button class="button-link" value="{{zid}}" onclick="mate_clicked(this)">{{full_name}}</button>
+		  <label>Posted:</label>
+		  {{delete_button}}
+		</div>
+		<div class="commentBox">
+			<p class="taskDescription"><img src="{{profile_pic}}" class="thumbnail"/>{{post}}</p>
+			<p>{{date_posted}}</p>
+		</div>
+
+
+		<!-- Comments -->
+		<div class="actionBox">
+			<ul class="commentList">
+				{{box_comments}}
+			</ul>
+			<!-- End of comments -->
+			<div class="row">
+				<div class="form-group col-sm-8">
+					<input class="form-control col-sm-6" type="text" placeholder="Your comments" id="{{post_id}}" style="width: 80%;">
+				</div>
+				<div class="form-group col-sm-2">
+					<button class="btn btn-primary col-sm-1" onclick="add_comment(this)" name="{{path_to_post}}" id="{{post_num}}">Add</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

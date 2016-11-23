@@ -1,0 +1,60 @@
+<div class="container container-table">
+    <div class="row vertical-center-row">
+        <div class="text-center col-md-4 col-md-offset-4">
+            <h1 style="color: white">Matelook</h1>
+            <!-- Place login box html code here -->
+            <!-- Below code was taken from: http://bootsnipp.com/snippets/featured/progressive-button-on-login -->
+            <h2 style="color: #428bca;">Sign up</h2>
+
+            <div>
+                <p id ="error" style="color: red;display: none;">{{error_message}}</p>
+            </div>
+
+            <div style="padding-top: 3%;">
+                <input type="text" class="form-control" id="zid" placeholder="Zid">
+            </div>
+
+            <div style="padding-top: 3%;">
+                <input type="text" class="form-control" id="name" placeholder="Full name">
+            </div>
+
+            <div style="padding-top: 3%;">
+                <input type="text" class="form-control" id="birthday" placeholder="Birthday YYYY-MM-DD">
+            </div>
+
+            <div style="padding-top: 3%;">
+                <input type="text" class="form-control" id="home" placeholder="Address">
+            </div>
+
+            <div style="padding-top: 3%;">
+                <input type="text" class="form-control" id="email" placeholder="Email Address">
+            </div>
+
+            <div style="padding-top: 3%;">
+                <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+
+            <div style="padding-top: 3%;">
+                <input type="password" class="form-control" id="confirm" placeholder="Confirm Password">
+            </div>
+
+
+            <div style="padding-top: 5%;">
+                <button class="btn btn-primary" onclick="signup()">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form role="form" id="signup_form" method="POST" action="">
+    <input type="hidden" name="welcome_page_action" id="welcome_page_action" value="sign_up">
+    <input type="hidden" name="logged_in" id="user_status" value="0">
+    <input type="hidden" name="sign_up_complete" id="sign_up_complete" value="1">
+    <input type="hidden" name="zid_form" id="zid_form">
+    <input type="hidden" name="email_form" id="email_form">
+    <input type="hidden" name="password_form" id="password_form">
+    <input type="hidden" name="confirm_form" id="confirm_form">
+    <input type="hidden" name="name_form" id="name_form">
+    <input type="hidden" name="birthday_form" id="birthday_form">
+    <input type="hidden" name="home_form" id="home_form">
+</form>

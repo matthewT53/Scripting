@@ -1,0 +1,39 @@
+BUGS:
+* When searching, relevant posts are not being returned
+* After deleting a user and posts and comments featuring them prevent other pages from loading
+* Each comment box needs a unique id
+
+Things to test:
+* Test "about me" and viewing other user's "about me"
+* Test the match suggestion and pagination for it are working
+
+TODO:
+* Get links working for mates that are tagged. just need to style it so it looks better
+* Search image is a bit off
+* Implement read more button for comments and replies (If have time)
+* There is random spacing from the top of the page to the navbar
+* Find sources for copied css and stuff
+
+Additional:
+* Password hashing Sha-256
+
+Mate suggestion algorithm: Time complexity:
+Worst: O(current_user_mates x mates_of_a_mate x _num_courses_current_user)
+my %potential_mates = ();
+
+get all the mates of the current user
+get courses of the current user as an array
+foreach mate of the current user
+    get the mates of this mate = list1
+    foreach mate_of_mate in list1:
+        if they are not the current user's mate:
+            store in hash "potential_mates" with a score of 1
+            get all the courses of the mate_of_mate as a str
+            foreach course that the current user is taking
+                if this course matches any courses that the mate_of_mate is taking:
+                    increment the hash value
+                END_IF
+            END_FOR
+        END_IF
+    END_FOR
+END_FOR
